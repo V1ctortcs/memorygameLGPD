@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import AuthUser
+from .models import AuthUser, UserFriend, UserScore
 from datetime import datetime
 from app import emailService
 from random import randint
@@ -21,9 +21,16 @@ def index(request):
     data['user'] = []
     data['users'] = []
     data['user'].append(request.user)
+    data['friends'] = UserFriend.objects.filter(my_id=request.user.id)
+
     if request.method == 'POST':
         var = request.POST.get('buscar')
-        users = User.objects.filter(username__contains=var)
+        users = AuthUser.objects.filter(username__contains=var).exclude(id=request.user.id)
+        #auxUsers = UserFriend.objects.filter(friend_id(username__contains=var))
+        #for i in auxUser:
+        #    for j in users:
+        #        if(auxUsers[i].friend_id.id == users[j].AuthUser.id):
+        #            users[j].remove
         for i in users:
             data['users'].append(i)
     return render(request, 'index.html', data)
@@ -127,3 +134,31 @@ def recovery_pass(request):
             data['error'].append('Ocorreu algum erro, tente novamente mais tarde!')
             return render(request,'recovery_pass.html', data)  
     return render(request, 'recovery_pass.html', data)
+
+@csrf_protect
+def friend(request):
+    data = {}
+    #data['user'] = []
+    #data['users'] = []
+    #data['user'].append(request.user)
+    #data['friends'] = []
+    data['error'] = []
+    if request.method == 'GET':
+        id = request.GET.get('id')
+        op = request.GET.get('op')
+        if(id != None and op != None):
+            try:           
+                friend = AuthUser.objects.get(id=id)
+                iduser = int(request.user.id)
+                #x = UserFriend.objects.filter(my_id=iduser,friend_id=friend)
+                if(friend == ''):
+                    data['error'].append('Amigo inválido')
+                #elif(x[0].friend_id == friend):
+                #    data['error'].append('Amigo já adicionado')
+                #    return redirect(request, 'index', data)
+                elif(op == "add"):
+                    fr = UserFriend(my_id=iduser,friend_id=friend)
+                    fr.save()
+            except:
+                data['error'].append("Erro ao adicionar amigo! Tente novamente")
+        return redirect('index')

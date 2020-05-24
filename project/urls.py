@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^index', views.index, name='index'),
     url(r'^logout', views.logout_user, name='logout'),
     url(r'^find', views.index, name='find'),
+    url(r'^friend', views.friend, name='friend'),
 
     #path("admin",admin.site.urls),
     #path("",views.login_user),
