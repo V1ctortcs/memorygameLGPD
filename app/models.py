@@ -119,3 +119,15 @@ class DjangoSession(models.Model):
     class Meta:
         managed = False
         db_table = 'django_session'
+
+class UserFriend(models.Model):
+    my_id = models.IntegerField()
+    friend_id = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    data_add = models.DateTimeField(auto_now_add=True)
+
+class UserScore(models.Model):
+    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    dif_easy = models.IntegerField()
+    dif_med = models.IntegerField()
+    dif_hard = models.IntegerField()
+    data_score = models.DateTimeField(auto_now_add=True)
