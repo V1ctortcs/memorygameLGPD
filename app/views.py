@@ -19,20 +19,14 @@ def login_user(request):
 def index(request):
     data = {}
     data['user'] = []
-    data['users'] = []
+    data['score'] = []
     data['user'].append(request.user)
-    data['friends'] = UserFriend.objects.filter(my_id=request.user.id)
-
-    if request.method == 'POST':
-        var = request.POST.get('buscar')
-        users = AuthUser.objects.filter(username__contains=var).exclude(id=request.user.id)
-        #auxUsers = UserFriend.objects.filter(friend_id(username__contains=var))
-        #for i in auxUser:
-        #    for j in users:
-        #        if(auxUsers[i].friend_id.id == users[j].AuthUser.id):
-        #            users[j].remove
-        for i in users:
-            data['users'].append(i)
+    data['error'] = []
+    try:
+        user = AuthUser.objects.get(id=request.user.id)
+        data['score'] = UserScore.objects.filter(user=user)
+    except:
+        data['error'].append('Erro ao carregar dados, tente novamente!')
     return render(request, 'index.html', data)
 
 def logout_user(request):
@@ -136,6 +130,32 @@ def recovery_pass(request):
     return render(request, 'recovery_pass.html', data)
 
 @csrf_protect
+def submit_score(request):
+    data = {}
+    data['sucess'] = []
+    data['error'] = []
+    try:
+        user = AuthUser.objects.get(id=request.user.id)
+        print("passei aqui")
+        userScore = UserScore.objects.get(user=user)
+        print("passei aqui ok")
+        if (userScore == ''):
+            userScoreIn = UserScore(user=user,dif_easy=5,dif_med=4,dif_hard=1)
+            userScoreIn.save()
+            print("passei aqui")
+        else:
+            userScore.dif_easy = 4
+            userScore.dif_med = 6
+            userScore.dif_hard = 3
+            userScore.save()
+            print("passei aqui 2")
+        print("passei aqui 3")
+        return redirect('index')
+    except: 
+        data['error'].append('Erro ao salvar pontuação!')
+        return redirect('index')
+
+'''@csrf_protect
 def friend(request):
     data = {}
     #data['user'] = []
@@ -159,6 +179,9 @@ def friend(request):
                 elif(op == "add"):
                     fr = UserFriend(my_id=iduser,friend_id=friend)
                     fr.save()
+                elif(op == "del"):
+                    fr = UserFriend.objects.get(my_id=iduser,friend_id=friend)
+                    fr.delete()
             except:
                 data['error'].append("Erro ao adicionar amigo! Tente novamente")
-        return redirect('index')
+        return redirect('index')'''
