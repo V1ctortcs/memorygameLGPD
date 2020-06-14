@@ -26,7 +26,7 @@
     <div class="row">
         <div class="col-4 border rounded">
             <div class="row text-center">
-                <form action="/find/" method="post">{% csrf_token %}
+                <form action="/score/" method="post">{% csrf_token %}
                     <div class="row">
                         <div class="col-10">
                             <input type="text" , class="form-control" id="buscar" name="buscar"
@@ -59,7 +59,7 @@
 
                     {% for friend in friends %}
                     <div>
-                        {{ friend.friend_id.username }} <a href="/friend/?id={{ user.id }}&op=del">Remover</a>
+                        {{ friend.friend_id.username }} <a href="/friend/?id={{ friend.friend_id.id }}&op=del">Remover</a>
                     </div>
                     {% endfor %}
 
@@ -67,9 +67,23 @@
         </div>
         <div class="col-8 border rounded" style="height: 200px;">
             <div>
-                <h3>
-                    Coluna de Mensagens
+                <h3 align="center">
+                    Melhor pontuação
                 </h3>
+                <div class="row" align="center">
+                    <div class="col-3 border rounded">Jogador</div>
+                    <div class="col-3 border rounded">Fácil</div>
+                    <div class="col-3 border rounded">Médio</div>
+                    <div class="col-3 border rounded">Difícil</div>
+                </div>
+                {% for sc in score %}
+                <div class="row" align="center">
+                    <div class="col-3 border rounded">{{sc.user.username}}</div>
+                    <div class="col-3 border rounded">{{sc.dif_easy}}</div>
+                    <div class="col-3 border rounded">{{sc.dif_med}}</div>
+                    <div class="col-3    border rounded">{{sc.dif_hard}}</div>
+                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
