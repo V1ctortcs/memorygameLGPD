@@ -144,8 +144,8 @@ def submit_score(request):
             userScoreIn.save()
             print("passei aqui")
         else:
-            userScore[0].dif_easy = 4
-            userScore[0].dif_med = 6
+            userScore[0].dif_easy = 2
+            userScore[0].dif_med = 5
             userScore[0].dif_hard = 3
             userScore[0].save()
             print("passei aqui 2")
