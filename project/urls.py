@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^logout', views.logout_user, name='logout'),
     url(r'^find', views.index, name='find'),
     url(r'^score',views.submit_score, name='score'),
+    url(r'^game',views.game, name='game'),
     #url(r'^friend', views.friend, name='friend'),
 
     #path("admin",admin.site.urls),

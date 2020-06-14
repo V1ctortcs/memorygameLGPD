@@ -155,6 +155,10 @@ def submit_score(request):
         data['error'].append('Erro ao salvar pontuação!')
         return redirect('index')
 
+@csrf_protect
+def game(request):
+    return render(request, 'game.html')
+
 '''@csrf_protect
 def friend(request):
     data = {}
