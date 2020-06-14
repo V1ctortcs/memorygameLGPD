@@ -137,17 +137,17 @@ def submit_score(request):
     try:
         user = AuthUser.objects.get(id=request.user.id)
         print("passei aqui")
-        userScore = UserScore.objects.get(user=user)
+        userScore = UserScore.objects.filter(user=user)
         print("passei aqui ok")
-        if (userScore == ''):
+        if (len(userScore) < 1):
             userScoreIn = UserScore(user=user,dif_easy=5,dif_med=4,dif_hard=1)
             userScoreIn.save()
             print("passei aqui")
         else:
-            userScore.dif_easy = 4
-            userScore.dif_med = 6
-            userScore.dif_hard = 3
-            userScore.save()
+            userScore[0].dif_easy = 4
+            userScore[0].dif_med = 6
+            userScore[0].dif_hard = 3
+            userScore[0].save()
             print("passei aqui 2")
         print("passei aqui 3")
         return redirect('index')
