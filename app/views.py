@@ -30,7 +30,6 @@ def index(request):
     return render(request, 'index.html', data)
 
 def logout_user(request):
-    print(request.user)
     logout(request)
     return redirect('/')
 
@@ -155,9 +154,32 @@ def submit_score(request):
         data['error'].append('Erro ao salvar pontuação!')
         return redirect('index')
 
+@login_required(login_url='')
 @csrf_protect
 def game(request):
-    return render(request, 'game.html')
+    data = {}
+    data['user'] = []
+    data['user'].append(request.user)
+    data['nivel'] = []
+    data['life'] = []
+    data['time'] = []
+    data['error'] = []
+    if request.method =='POST':
+        if request.POST.get('easy'):
+            data['nivel'].append('Fácil')
+            data['life'].append(7)
+            data['time'].append(10)
+        elif request.POST.get('med'):
+            data['nivel'].append('Médio')
+            data['life'].append(5)
+            data['time'].append(7)
+        elif request.POST.get('hard'):
+            data['nivel'].append('Difícil')
+            data['life'].append(3)
+            data['time'].append(3)
+        else:
+            data['error'].append('Erro ao carregar nível de dificuldade, tente mais tarde!')
+    return render(request, 'game.html',data)
 
 '''@csrf_protect
 def friend(request):

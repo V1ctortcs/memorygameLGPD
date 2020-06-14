@@ -40,24 +40,24 @@
                     LGPD(Segurança de Dados)</p>
             </div>
             <ul class="list-group list-group-flush">
-                <form action="escolha-dificuldade" method="post">{% csrf_token %}
+                <form action="game" method="post">{% csrf_token %}
                     <li class="list-group-item">
-                        <button type="submit" name="facil" value="facil"
+                        <button type="submit" name="easy" value="easy"
                             class="btn btn-outline-success btn-rounded btn-block waves-effect">Fácil</button>
                     </li>
                     <li class="list-group-item">
-                        <button type="submit" name="medio" value="medio"
+                        <button type="submit" name="med" value="med"
                             class="btn btn-outline-warning btn-rounded btn-block waves-effect">Médio</button>
                     </li>
                     <li class="list-group-item">
-                        <button type="submit" name="dificil" value="dificil"
+                        <button type="submit" name="hard" value="hard"
                             class="btn btn-outline-danger btn-rounded btn-block waves-effect">Difícil</button>
                     </li>
                 </form>
             </ul>
         </div>
     </div>
-            <div class="col-lg-8 border rounded" style="height: 200px;">
+            <div id="pontuacao" class="col-lg-8 border rounded" style="height: 200px;">
                 <div>
                     <h3 align="center">
                         Melhor pontuação
@@ -73,7 +73,7 @@
                         <div class="col-3 border rounded">{{sc.user.username}}</div>
                         <div class="col-3 border rounded">{{sc.dif_easy}}</div>
                         <div class="col-3 border rounded">{{sc.dif_med}}</div>
-                        <div class="col-3    border rounded">{{sc.dif_hard}}</div>
+                        <div class="col-3 border rounded">{{sc.dif_hard}}</div>
                     </div>
                     {% endfor %}
                 </div>
