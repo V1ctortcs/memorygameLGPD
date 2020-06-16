@@ -45,6 +45,19 @@ function disableCards() {
   resetBoard();
 }
 
+function RemoveVida(){
+  var vd = document.getElementById("vida").value;
+  vd = vd - 1;
+  console.log(vd)
+  document.getElementById("vida").value = vd;
+
+  if(vd == 0 || vd < 0 ){
+    abreModal("zerou");
+    vd = 0
+    document.getElementById("vida").value = vd;
+  }
+}
+
 function unflipCards() {
   lockBoard = true;
 
@@ -54,6 +67,8 @@ function unflipCards() {
 
     resetBoard();
   }, 1500);
+
+  RemoveVida();
 }
 
 function resetBoard() {
