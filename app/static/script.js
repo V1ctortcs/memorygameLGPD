@@ -21,15 +21,26 @@ function flipCard() {
   checkForMatch();
 }
 
+function abreModal(id) {
+ $("#" + id).modal({
+      show: true
+    });
+ }
+setTimeout(abreModal, 1000);
+
 function checkForMatch() {
   let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
 
   isMatch ? disableCards() : unflipCards();
+
 }
 
 function disableCards() {
+
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
+
+  abreModal(firstCard.dataset.framework)
 
   resetBoard();
 }
