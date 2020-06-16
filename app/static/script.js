@@ -1,5 +1,7 @@
 const cards = document.querySelectorAll('.memory-card');
 
+var plus = 0;
+
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
@@ -22,17 +24,24 @@ function flipCard() {
 }
 
 function abreModal(id) {
- $("#" + id).modal({
-      show: true
-    });
- }
+  $("#" + id).modal({
+    show: true
+  });
+}
 setTimeout(abreModal, 1000);
 
 function checkForMatch() {
   let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
 
   isMatch ? disableCards() : unflipCards();
-
+  
+  if (isMatch == true) {
+    plus = plus + 1;
+    console.log(plus)
+    if (plus == 6) {
+      abreModal("ganhou")
+    }
+  }
 }
 
 function disableCards() {
@@ -45,13 +54,12 @@ function disableCards() {
   resetBoard();
 }
 
-function RemoveVida(){
+function RemoveVida() {
   var vd = document.getElementById("vida").value;
   vd = vd - 1;
-  console.log(vd)
   document.getElementById("vida").value = vd;
 
-  if(vd == 0 || vd < 0 ){
+  if (vd == 0 || vd < 0) {
     abreModal("zerou");
     vd = 0
     document.getElementById("vida").value = vd;
