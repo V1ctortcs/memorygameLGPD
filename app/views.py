@@ -13,7 +13,10 @@ from random import randint
 
 
 def login_user(request):
-    return render(request, 'login.html')
+    data = {}
+    data['user'] = []
+    data['user'].append(request.user)
+    return render(request, 'login.html', data)
 
 @login_required(login_url='')
 def index(request):
