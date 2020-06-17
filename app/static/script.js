@@ -52,13 +52,13 @@ setTimeout(abreModal, 1000);
 
 function checkForMatch() {
   let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
-
+  
   isMatch ? disableCards() : unflipCards();
 
   if (isMatch == true) {
     plus = plus + 1;
-    pontos = document.getElementById('ponto').value
-    pontos = plus
+    pontos = parseInt(document.getElementById('ponto').value)
+    pontos = pontos + 1
     document.getElementById('ponto').value = pontos;
     console.log(pontos)
     if (plus == 6) {
@@ -127,5 +127,4 @@ cards.forEach(card => card.addEventListener('click', flipCard));
 
 function recebeValor(){
   var teste = document.getElementById("formponto").submit();
-  console.log(teste)
 }

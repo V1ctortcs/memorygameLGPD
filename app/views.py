@@ -136,12 +136,12 @@ def submit_score(request):
     data = {}
     data['sucess'] = []
     data['error'] = []
-    try:
-        if request.method == 'POST':
+    if request.method == 'POST':
             nivel = request.POST.get('nivel')
             ponto = request.POST.get('ponto')
             print(nivel)
             print(ponto)
+    try:
         user = AuthUser.objects.get(id=request.user.id)
         print("passei aqui")
         userScore = UserScore.objects.filter(user=user)

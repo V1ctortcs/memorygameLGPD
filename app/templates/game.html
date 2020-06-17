@@ -12,7 +12,7 @@
     </div>
     {% for nv in nivel %}
     <div class="col-md-2" style="color: black;">Nível: <input type="text" id="nivel" name="nivel"
-        style="text-align: center;width: 50px;border: 0;text-decoration: none;background:#eeeeee" disabled
+        style="text-align: center;width: 50px;border: 0;text-decoration: none;background:#eeeeee" readonly
         value="{{nv}}"></div>
     {% endfor %}
     {% for lf in life %}
@@ -33,8 +33,7 @@
     <div class="" style="color: black;">Pontos:
       <input type="text" name="ponto" id="ponto"
         style="text-align: center;width: 50px;border: 0;text-decoration: none; color:red; font-size:25px;background:#eeeeee"
-        disabled value="0">
-        <button type="submit" class="btn btn-secondary" data-dismiss="modal">Fechar para continuar</button>
+        readonly value="0">
     </div>
   </div>
 </form>
