@@ -10,17 +10,17 @@
     </a>
   </div>
   {% for nv in nivel %}
-  <div class="col-md-2" style="color: black;">Nível: <input type="text" style="text-align: center;width: 50px;border: 0;text-decoration: none;"  value="{{nv}}"></div>
+  <div class="col-md-2" style="color: black;">Nível: <input type="text" style="text-align: center;width: 50px;border: 0;text-decoration: none;background:white"  disabled value="{{nv}}"></div>
   {% endfor %}
   {% for lf in life %}
-  <div class="col-md-2" style="color: black;">Vidas: <input type="text" id="vida"style="text-align: center;width: 50px;border: 0;text-decoration: none;"  value="{{lf}}"></div>
+  <div class="col-md-2" style="color: black;">Vidas: <input type="text" id="vida"style="text-align: center;width: 50px;border: 0;text-decoration: none;background:white" disabled value="{{lf}}"></div>
   {% endfor %}
   {% for tm in time %}
-  <div class="col-md-4" style="color: black;">Tempo de Visualização: <input type="text" style="text-align: center;width: 20px;border: 0;text-decoration: none;"  value="{{tm}}" > segundos</div>
+  <div class="col-md-4" style="color: black;">Tempo de Visualização: <input type="text" id="tempo"style="text-align: center;width: 20px;border: 0;text-decoration: none;background:white" disabled value="{{tm}}" > segundos</div>
   {% endfor %}
   <div class="col-md-2">
   
-    <button type="submit" class="btn btn-success">Iniciar</button>
+    <button type="submit" id="btniniciar" class="btn btn-success" onclick="flipAllCards()">Iniciar</button>
   </div>
 </div>
  <!-- Input onde vai receber o valor da dificuldade, usar pra adicionar a pontuação com base no valor. -->
@@ -181,62 +181,68 @@
   </div>
 </div>
 
+<div class="container" style="text-align: center;">
+  <div class="" style="color: black;">Pontos: 
+    <form method="POST">{% csrf_token %}
+      <input type="text" id="ponto" style="text-align: center;width: 50px;border: 0;text-decoration: none; color:red; font-size:25px;background:white" disabled value="0">
+    </form>
+  </div>
+</div>
 
-
-<section class="memory-game">
+<section class="memory-game desaparece" id="gamer">
 
   <div class="memory-card" data-framework="aurelia">
     <img class="front-face" src="../static/img/aurelia.svg" alt="Aurelia" />
-    <img class="back-face" src="../static/img/js-badge.svg" alt="JS Badge" />
+    <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
   </div>
   <div class="memory-card" data-framework="aurelia">
     <img class="front-face" src="../static/img/aurelia.svg" alt="Aurelia" />
-    <img class="back-face" src="../static/img/js-badge.svg" alt="JS Badge" />
+    <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
   </div>
 
   <div class="memory-card" data-framework="vue">
     <img class="front-face" src="../static/img/vue.svg" alt="Vue" />
-    <img class="back-face" src="../static/img/js-badge.svg" alt="JS Badge" />
+    <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
   </div>
   <div class="memory-card" data-framework="vue">
     <img class="front-face" src="../static/img/vue.svg" alt="Vue" />
-    <img class="back-face" src="../static/img/js-badge.svg" alt="JS Badge" />
+    <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
   </div>
 
   <div class="memory-card" data-framework="angular">
     <img class="front-face" src="../static/img/angular.svg" alt="Angular" />
-    <img class="back-face" src="../static/img/js-badge.svg" alt="JS Badge" />
+    <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
   </div>
   <div class="memory-card" data-framework="angular">
     <img class="front-face" src="../static/img/angular.svg" alt="Angular" />
-    <img class="back-face" src="../static/img/js-badge.svg" alt="JS Badge" />
+    <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
   </div>
 
   <div class="memory-card" data-framework="ember">
     <img class="front-face" src="../static/img/ember.svg" alt="Ember" />
-    <img class="back-face" src="../static/img/js-badge.svg" alt="JS Badge" />
+    <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
   </div>
   <div class="memory-card" data-framework="ember">
     <img class="front-face" src="../static/img/ember.svg" alt="Ember" />
-    <img class="back-face" src="../static/img/js-badge.svg" alt="JS Badge" />
+    <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
   </div>
 
   <div class="memory-card" data-framework="backbone">
     <img class="front-face" src="../static/img/backbone.svg" alt="Backbone" />
-    <img class="back-face" src="../static/img/js-badge.svg" alt="JS Badge" />
+    <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
   </div>
   <div class="memory-card" data-framework="backbone">
     <img class="front-face" src="../static/img/backbone.svg" alt="Backbone" />
-    <img class="back-face" src="../static/img/js-badge.svg" alt="JS Badge" />
+    <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
   </div>
 
   <div class="memory-card" data-framework="react">
     <img class="front-face" src="../static/img/react.svg" alt="React" />
-    <img class="back-face" src="../static/img/js-badge.svg" alt="JS Badge" />
+    <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
   </div>
   <div class="memory-card" data-framework="react">
     <img class="front-face" src="../static/img/react.svg" alt="React" />
-    <img class="back-face" src="../static/img/js-badge.svg" alt="JS Badge" />
+    <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
   </div>
 </section>
 

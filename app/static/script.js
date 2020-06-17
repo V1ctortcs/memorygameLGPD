@@ -1,10 +1,30 @@
 const cards = document.querySelectorAll('.memory-card');
-
 var plus = 0;
 
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
+
+function flipAllCards() {
+  cards.forEach(card => {
+    card.classList.add('flip');
+  });
+
+  var tempo = document.getElementById("tempo").value;
+
+  var jogo = document.getElementById("gamer");
+
+  jogo.classList.remove('desaparece');
+
+  setTimeout(() => {
+    cards.forEach(card => {
+      card.classList.remove('flip');
+    });
+  }, tempo * 1000);
+  document.getElementById("btniniciar").disabled = true;
+
+
+}
 
 function flipCard() {
   if (lockBoard) return;
@@ -34,10 +54,13 @@ function checkForMatch() {
   let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
 
   isMatch ? disableCards() : unflipCards();
-  
+
   if (isMatch == true) {
     plus = plus + 1;
-    console.log(plus)
+    pontos = document.getElementById('ponto').value
+    pontos = plus
+    document.getElementById('ponto').value = pontos;
+    console.log(pontos)
     if (plus == 6) {
       abreModal("ganhou")
     }
@@ -55,7 +78,16 @@ function disableCards() {
 }
 
 function RemoveVida() {
+  var pontos = document.getElementById('ponto').value;
   var vd = document.getElementById("vida").value;
+  pontos = pontos -1
+
+  if(pontos < 0){
+    pontos = 0;
+  }
+  document.getElementById('ponto').value = pontos;
+  console.log(pontos)
+
   vd = vd - 1;
   document.getElementById("vida").value = vd;
 
