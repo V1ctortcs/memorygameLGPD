@@ -136,27 +136,28 @@ def submit_score(request):
     data = {}
     data['sucess'] = []
     data['error'] = []
-    if request.method == 'POST':
+    try:
+        if request.method == 'POST':
             nivel = request.POST.get('nivel')
             ponto = request.POST.get('ponto')
-            print(nivel)
-            print(ponto)
-    try:
-        user = AuthUser.objects.get(id=request.user.id)
-        print("passei aqui")
-        userScore = UserScore.objects.filter(user=user)
-        print("passei aqui ok")
-        if (len(userScore) < 1):
-            userScoreIn = UserScore(user=user,dif_easy=5,dif_med=4,dif_hard=1)
-            userScoreIn.save()
-            print("passei aqui")
-        else:
-            userScore[0].dif_easy = 6
-            userScore[0].dif_med = 4
-            userScore[0].dif_hard = 7
-            userScore[0].save()
-            print("passei aqui 2")
-        print("passei aqui 3")
+            user = AuthUser.objects.get(id=request.user.id)
+            userScore = UserScore.objects.filter(user=user)
+            if (len(userScore) < 1):
+                if(nivel == 'Fácil'):
+                    userScoreIn = UserScore(user=user,dif_easy=ponto,dif_med=0,dif_hard=0)
+                elif(nivel == 'Médio'):
+                    userScoreIn = UserScore(user=user,dif_easy=0,dif_med=ponto,dif_hard=0)
+                elif(nivel == 'Difícil'):
+                    userScoreIn = UserScore(user=user,dif_easy=0,dif_med=0,dif_hard=ponto)
+                userScoreIn.save()
+            else:
+                if(nivel == 'Fácil'):
+                    userScore[0].dif_easy = ponto
+                elif(nivel == 'Médio'):
+                    userScore[0].dif_med = ponto
+                elif(nivel == 'Difícil'):
+                    userScore[0].dif_hard = ponto
+                userScore[0].save()
         return redirect('index')
     except: 
         data['error'].append('Erro ao salvar pontuação!')
@@ -176,15 +177,15 @@ def game(request):
         if request.POST.get('easy'):
             data['nivel'].append('Fácil')
             data['life'].append(7)
-            data['time'].append(10)
+            data['time'].append(4)
         elif request.POST.get('med'):
             data['nivel'].append('Médio')
             data['life'].append(5)
-            data['time'].append(7)
+            data['time'].append(2)
         elif request.POST.get('hard'):
             data['nivel'].append('Difícil')
             data['life'].append(3)
-            data['time'].append(3)
+            data['time'].append(1)
         else:
             data['error'].append('Erro ao carregar nível de dificuldade, tente mais tarde!')
     return render(request, 'game.html',data)
