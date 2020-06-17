@@ -124,3 +124,8 @@ function resetBoard() {
 })();
 
 cards.forEach(card => card.addEventListener('click', flipCard));
+
+function recebeValor(){
+  var teste = document.getElementById("formponto").submit();
+  console.log(teste)
+}

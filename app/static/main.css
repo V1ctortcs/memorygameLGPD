@@ -1,5 +1,5 @@
 body {
-    background: #fafafa;
+    background: #eeeeee;
     color: #333333;
     margin-top: 5rem;
   }
@@ -84,7 +84,11 @@ body {
   }
 
   .navbar{
-      background-color: rgb(29, 53, 87);
+      background-color: #222831;
+      border:none;
+      border-bottom:solid;
+      border-color: #32e0c4;
+
   }
 
   .imgjoga{
