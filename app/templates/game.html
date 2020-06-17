@@ -3,7 +3,7 @@
 {% block content %}
 <link rel="stylesheet" href="../static/style.css">
 <input type="text" value="1" hidden>
-<form method="POST" id="formponto" action="score">{% csrf_token %}
+<form method="post" id="formponto" action="score">{% csrf_token %}
   <div class="row container" style="text-align: center;">
     <div class="col-md-2">
       <a href="/index">
@@ -11,7 +11,7 @@
       </a>
     </div>
     {% for nv in nivel %}
-    <div class="col-md-2" style="color: black;">Nível: <input type="text" id="nivel"
+    <div class="col-md-2" style="color: black;">Nível: <input type="text" id="nivel" name="nivel"
         style="text-align: center;width: 50px;border: 0;text-decoration: none;background:#eeeeee" disabled
         value="{{nv}}"></div>
     {% endfor %}
@@ -34,6 +34,7 @@
       <input type="text" name="ponto" id="ponto"
         style="text-align: center;width: 50px;border: 0;text-decoration: none; color:red; font-size:25px;background:#eeeeee"
         disabled value="0">
+        <button type="submit" class="btn btn-secondary" data-dismiss="modal">Fechar para continuar</button>
     </div>
   </div>
 </form>

@@ -137,6 +137,11 @@ def submit_score(request):
     data['sucess'] = []
     data['error'] = []
     try:
+        if request.method == 'POST':
+            nivel = request.POST.get('nivel')
+            ponto = request.POST.get('ponto')
+            print(nivel)
+            print(ponto)
         user = AuthUser.objects.get(id=request.user.id)
         print("passei aqui")
         userScore = UserScore.objects.filter(user=user)
@@ -146,9 +151,9 @@ def submit_score(request):
             userScoreIn.save()
             print("passei aqui")
         else:
-            userScore[0].dif_easy = 2
-            userScore[0].dif_med = 5
-            userScore[0].dif_hard = 3
+            userScore[0].dif_easy = 6
+            userScore[0].dif_med = 4
+            userScore[0].dif_hard = 7
             userScore[0].save()
             print("passei aqui 2")
         print("passei aqui 3")
