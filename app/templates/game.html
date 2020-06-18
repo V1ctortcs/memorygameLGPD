@@ -40,19 +40,24 @@
 <!-- Input onde vai receber o valor da dificuldade, usar pra adicionar a pontuação com base no valor. -->
 
 
-<!-- Modal Aurelia -->
-<div class="modal fade" data-modal="modalTeste" id="aurelia" tabindex="-1" role="dialog"
+<!-- Modal image -->
+<div class="modal fade" data-modal="modalTeste" id="image" tabindex="-1" role="dialog"
   aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Aurelia</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Transparência:</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        Descrição da imagem
+      <div class="modal-body row">
+        <div class="col-lg-4">
+          <img class="resizeimg img-responsive" src="../static/img/image.png" alt="image" />
+        </div>
+        <div class="col-lg-8">
+          Todas as informações dos titulares devem ser claras, precisar de fácil acesso
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar para continuar</button>
@@ -67,10 +72,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="erro">Zerou</h5>
-      </div>
-      <div class="modal-body">
-        Descrição da imagem
+        <h5 class="modal-title" id="erro">Você perdeu!</h5>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" onclick="window.location.reload();" data-dismiss="modal">Clique
@@ -92,27 +94,32 @@
         Descrição da imagem
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" onclick="recebeValor();"
-          data-dismiss="modal">Clique aqui para voltar a página inicial</button>
+        <button type="button" class="btn btn-secondary" onclick="recebeValor();" data-dismiss="modal">Clique aqui para
+          voltar a página inicial</button>
       </div>
     </div>
   </div>
 </div>
 
 
-<!-- Modal Vue -->
-<div class="modal fade" data-modal="modalTeste" id="vue" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
+<!-- Modal image1 -->
+<div class="modal fade" data-modal="modalTeste" id="image1" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel2">Vue</h5>
+        <h5 class="modal-title" id="exampleModalLabel2">Uma regra para todos</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        Descrição da imagem
+      <div class="modal-body row">
+        <div class="col-lg-4">
+          <img class="resizeimg img-responsive" src="../static/img/image1.png" alt="image1" />
+        </div>
+        <div class="col-lg-8">
+          Cria um cenário de segurança jurídica válido para todo o país.
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar para continuar</button>
@@ -121,19 +128,24 @@
   </div>
 </div>
 
-<!-- Modal Angular -->
-<div class="modal fade" data-modal="modalTeste" id="angular" tabindex="-1" role="dialog"
+<!-- Modal image2 -->
+<div class="modal fade" data-modal="modalTeste" id="image2" tabindex="-1" role="dialog"
   aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel3">Angular</h5>
+        <h5 class="modal-title" id="exampleModalLabel3">Penalidades Rígidas: </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        Descrição da imagem
+      <div class="modal-body row">
+        <div class="col-lg-4">
+          <img class="resizeimg img-responsive" src="../static/img/image2.png" alt="image2" />
+        </div>
+        <div class="col-lg-8">
+          Falhas de Segurança podem gerar multas pesadas.
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar para continuar</button>
@@ -142,19 +154,24 @@
   </div>
 </div>
 
-<!-- Modal Ember -->
-<div class="modal fade" data-modal="modalTeste" id="ember" tabindex="-1" role="dialog"
+<!-- Modal image3 -->
+<div class="modal fade" data-modal="modalTeste" id="image3" tabindex="-1" role="dialog"
   aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel4">Ember</h5>
+        <h5 class="modal-title" id="exampleModalLabel4">Abrangência Extraterritorial: </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        Descrição da imagem
+      <div class="modal-body row">
+        <div class="col-lg-4">
+          <img class="resizeimg img-responsive" src="../static/img/image3.png" alt="image3" />
+        </div>
+        <div class="col-lg-8">
+          Não importa se a organização ou o centro de dados está dentro ou fora do Brasil.
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar para continuar</button>
@@ -163,19 +180,24 @@
   </div>
 </div>
 
-<!-- Modal Backbone -->
-<div class="modal fade" data-modal="modalTeste" id="backbone" tabindex="-1" role="dialog"
+<!-- Modal image4 -->
+<div class="modal fade" data-modal="modalTeste" id="image4" tabindex="-1" role="dialog"
   aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel5">Backbone</h5>
+        <h5 class="modal-title" id="exampleModalLabel5">Definição do conceito:</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        Descrição da imagem
+      <div class="modal-body row">
+        <div class="col-lg-4">
+          <img class="resizeimg img-responsive" src="../static/img/image4.png" alt="image4" />
+        </div>
+        <div class="col-lg-8">
+          Estabelece, de maneira clara, o que são dados pessoais.
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar para continuar</button>
@@ -184,19 +206,24 @@
   </div>
 </div>
 
-<!-- Modal React -->
-<div class="modal fade" data-modal="modalTeste" id="react" tabindex="-1" role="dialog"
+<!-- Modal image5 -->
+<div class="modal fade" data-modal="modalTeste" id="image5" tabindex="-1" role="dialog"
   aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel6">React</h5>
+        <h5 class="modal-title" id="exampleModalLabel6">Gestão de riscos e falhas </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        Descrição da imagem
+      <div class="modal-body row">
+        <div class="col-lg-4">
+          <img class="resizeimg img-responsive" src="../static/img/image5.png" alt="image5" />
+        </div>
+        <div class="col-lg-8">
+          Quem gera base de dados pessoais terá que fazer essa gestão.
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar para continuar</button>
@@ -209,57 +236,57 @@
 
 <section class="memory-game desaparece" id="gamer">
 
-  <div class="memory-card" data-framework="aurelia">
-    <img class="front-face" src="../static/img/aurelia.png" alt="Aurelia" />
+  <div class="memory-card" data-framework="image">
+    <img class="front-face" src="../static/img/image.png" alt="image" />
     <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
   </div>
-  <div class="memory-card" data-framework="aurelia">
-    <img class="front-face" src="../static/img/aurelia.png" alt="Aurelia" />
-    <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
-  </div>
-
-  <div class="memory-card" data-framework="vue">
-    <img class="front-face" src="../static/img/vue.svg" alt="Vue" />
-    <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
-  </div>
-  <div class="memory-card" data-framework="vue">
-    <img class="front-face" src="../static/img/vue.svg" alt="Vue" />
+  <div class="memory-card" data-framework="image">
+    <img class="front-face" src="../static/img/image.png" alt="image" />
     <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
   </div>
 
-  <div class="memory-card" data-framework="angular">
-    <img class="front-face" src="../static/img/angular.svg" alt="Angular" />
+  <div class="memory-card" data-framework="image1">
+    <img class="front-face" src="../static/img/image1.png" alt="image1" />
     <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
   </div>
-  <div class="memory-card" data-framework="angular">
-    <img class="front-face" src="../static/img/angular.svg" alt="Angular" />
-    <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
-  </div>
-
-  <div class="memory-card" data-framework="ember">
-    <img class="front-face" src="../static/img/ember.svg" alt="Ember" />
-    <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
-  </div>
-  <div class="memory-card" data-framework="ember">
-    <img class="front-face" src="../static/img/ember.svg" alt="Ember" />
+  <div class="memory-card" data-framework="image1">
+    <img class="front-face" src="../static/img/image1.png" alt="image1" />
     <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
   </div>
 
-  <div class="memory-card" data-framework="backbone">
-    <img class="front-face" src="../static/img/backbone.svg" alt="Backbone" />
+  <div class="memory-card" data-framework="image2">
+    <img class="front-face" src="../static/img/image2.png" alt="image2" />
     <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
   </div>
-  <div class="memory-card" data-framework="backbone">
-    <img class="front-face" src="../static/img/backbone.svg" alt="Backbone" />
+  <div class="memory-card" data-framework="image2">
+    <img class="front-face" src="../static/img/image2.png" alt="image2" />
     <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
   </div>
 
-  <div class="memory-card" data-framework="react">
-    <img class="front-face" src="../static/img/react.svg" alt="React" />
+  <div class="memory-card" data-framework="image3">
+    <img class="front-face" src="../static/img/image3.png" alt="image3" />
     <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
   </div>
-  <div class="memory-card" data-framework="react">
-    <img class="front-face" src="../static/img/react.svg" alt="React" />
+  <div class="memory-card" data-framework="image3">
+    <img class="front-face" src="../static/img/image3.png" alt="image3" />
+    <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
+  </div>
+
+  <div class="memory-card" data-framework="image4">
+    <img class="front-face" src="../static/img/image4.png" alt="image4" />
+    <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
+  </div>
+  <div class="memory-card" data-framework="image4">
+    <img class="front-face" src="../static/img/image4.png" alt="image4" />
+    <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
+  </div>
+
+  <div class="memory-card" data-framework="image5">
+    <img class="front-face" src="../static/img/image5.png" alt="image5" />
+    <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
+  </div>
+  <div class="memory-card" data-framework="image5">
+    <img class="front-face" src="../static/img/image5.png" alt="image5" />
     <img class="back-face" src="../static/img/backcard.jpg" alt="JS Badge" />
   </div>
 </section>
