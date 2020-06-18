@@ -152,11 +152,14 @@ def submit_score(request):
                 userScoreIn.save()
             else:
                 if(nivel == 'Fácil'):
-                    userScore[0].dif_easy = ponto
+                    if (int(userScore[0].dif_easy) < int(ponto)):
+                        userScore[0].dif_easy = ponto
                 elif(nivel == 'Médio'):
-                    userScore[0].dif_med = ponto
+                    if (int(userScore[0].dif_med) < int(ponto)):
+                        userScore[0].dif_med = ponto
                 elif(nivel == 'Difícil'):
-                    userScore[0].dif_hard = ponto
+                    if (int(userScore[0].dif_hard) < int(ponto)):
+                        userScore[0].dif_hard = ponto
                 userScore[0].save()
         return redirect('index')
     except: 
